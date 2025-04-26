@@ -1,34 +1,51 @@
 # Booking.com Scraper
-About
-A scalable scraper which basically can extract all needed detail hotel informations from any city on Booking.com.
-It is designed for research, data analysis, and personal projects requiring hotel data at scale.
-Disclaimer: This tool is intended for educational and personal use only. Ensure you comply with Booking.com's Terms of Service before using it at scale.
+A scalable scraper that can extract all necessary hotel details from any city on Booking.com.
+Designed for research, data analysis, and personal projects requiring hotel data at scale.
 
-Feature
-✅ Extract reviews, hotel name, rating, location, and number of reviews,...
-✅ Scroll and load more hotel results dynamically
+Disclaimer: This tool is intended for educational and personal use only. Ensure compliance with Booking.com's Terms of Service before using it at scale.
+
+Features
+✅ Extract hotel details: reviews, name, rating, location, number of reviews, etc.
+
+✅ Dynamically scroll and load more hotel results
+
 ✅ Scrape customer reviews via Booking.com's GraphQL API
-✅ Dynamic cookie to avoid detection
+
+✅ Dynamic cookie management to avoid detection
+
 ✅ Modular, class-based design for easy maintenance
 
 Installation
-git clone https://github.com/CaptainGouzMoew/Booking.com-Crawler.git
-pip install -r requirements.txt
+Clone the repository and install the dependencies:
 
+bash
+Copy
+Edit
+git clone https://github.com/CaptainGouzMoew/Booking.com-Crawler.git  
+cd Booking.com-Crawler  
+pip install -r requirements.txt
 Usage
 To scrape hotel listings:
-python scrape_hotels.py 
 
+bash
+Copy
+Edit
+python scrape_hotels.py
 To scrape customer reviews for a specific hotel:
-python scrape_comments.py --hotel_id 1234567
 
+bash
+Copy
+Edit
+python scrape_comments.py --hotel_id 1234567
 Configuration
-Headers and cookies must be refreshed occasionally to avoid detection.
-Destination IDs and Hotel IDs can be fetched dynamically during scraping.
-Settings for pagination, scroll delays, and user-agent rotation can be adjusted inside the config file.
+Headers and cookies must be refreshed periodically to avoid detection.
+
+Destination and hotel IDs are fetched dynamically during scraping.
+
+Pagination, scroll delays, and user-agent rotation can be adjusted in the config file.
 
 License
-Distributed under the MIT License. See LICENSE for more information.
+This project is licensed under the MIT License — see LICENSE for details.
 
 Contact
 Dong Thanh Duong
@@ -36,4 +53,4 @@ GitHub: @CaptainGouzMoew
 Email: dongthanhduong0312@gmail.com
 
 Tips
-scrape a city might take quite a while, you're better take a nap before taking the result
+Scraping a city might take some time. You’re better off taking a nap while it works its magic and returns the results!
