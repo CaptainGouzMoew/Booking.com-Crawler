@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 import pandas as pd
+from pathlib import Path
 
 
 class BookingScraper:
@@ -44,6 +45,14 @@ class BookingScraper:
     def close(self):
         self.driver.quit()
 
+    def save_file(self, df):
+        dir = Path("hotel_list")
+        dir.mkdir(exist_ok=True)
+
+        file_path = dir / f"{self.city.replace(' ', '_')}.csv"
+        df.to_csv(file_path, index=False)
+        print(f"✅ Saved hotel list to {file_path}")
+
     def get_hotel_info(self):
         self.driver.get(self.url)
         self.scroll_to_bottom()
@@ -51,7 +60,7 @@ class BookingScraper:
 
         property_cards = self.driver.find_elements(By.CSS_SELECTOR, 'div[data-testid="property-card"]')
 
-        link_list, rating_list = [], []
+        link_list = []
 
         for property in property_cards:
             try:
@@ -69,7 +78,6 @@ class BookingScraper:
 
                 # name_list.append(name)
                 link_list.append(link)
-                rating_list.append(rating)
                 # num_reviews_list.append(num_reviews)
 
             except Exception:
@@ -78,10 +86,13 @@ class BookingScraper:
         self.driver.quit()
 
         df = pd.DataFrame({
-            "Page link": link_list,
-            "Rating": rating_list
+            "Page link": link_list
         })
+
+        self.save_file(df)
+
         return df
+
 
 if __name__ == "__main__":
     cities = ["ha-noi"]
@@ -93,5 +104,7 @@ if __name__ == "__main__":
             print(df.to_markdown())
         except Exception as e:
             print(f"❌ Failed for {city}: {e}")
+
+
 
 

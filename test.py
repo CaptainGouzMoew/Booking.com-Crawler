@@ -10,15 +10,20 @@ from city import cities
 output_dir = Path("output_reviews")
 output_dir.mkdir(exist_ok=True)
 
+hotel_list_dir = Path("hotel_list") 
+hotel_list_dir.mkdir(exist_ok=True)  
+
+
 for city in cities:
     print(f"\n📍 Processing city: {city}")
 
-    city_filename = output_dir / f"{city.replace(' ', '_')}.xlsx"
+    city_filename = output_dir / f"{city.replace(' ', '_')}.csv"
+    hotel_filename = hotel_list_dir / f"{city.replace(' ', '_')}.csv"
 
     # Load previously saved reviews (if any)
     if city_filename.exists():
-        existing_df = pd.read_excel(city_filename)
-        processed_links = set(existing_df['referal'].unique())
+        existing_df = pd.read_csv(city_filename)
+        processed_links = set(existing_df['Page link'].unique())
         df_all = [existing_df]
         print(f"✅ Found existing data for city: {len(processed_links)} hotels already saved.")
     else:
@@ -27,9 +32,9 @@ for city in cities:
 
     hotel_scrape = BookingScraper(city=city)
     df = hotel_scrape.get_hotel_info()
-
     refers = df['Page link']
-    for i, refer in enumerate(refers):
+
+    for i, refer in enumerate(refers): # Hotel part
         if refer in processed_links:
             print(f"⏩ Already processed: {refer}")
             continue
@@ -51,7 +56,7 @@ for city in cities:
             )
 
             df_reviews = review_scraper.scrapeReview()
-
+        
             if not df_reviews.empty:
                 df_all.append(df_reviews)
                 print(f"✅ Scraped: {refer}")
@@ -59,7 +64,7 @@ for city in cities:
                 print(f"⚠️ No reviews found: {refer}")
 
             # Save immediately after each hotel
-            pd.concat(df_all, ignore_index=True).to_excel(city_filename, index=False)
+            pd.concat(df_all, ignore_index=True).to_csv(city_filename, index=False)
 
         except Exception as e:
             print(f"❌ Error scraping hotel at {refer}: {e}")
