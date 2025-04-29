@@ -4,7 +4,7 @@ Designed for research, data analysis, and personal projects requiring hotel data
 
 Disclaimer: This tool is intended for educational and personal use only. Ensure compliance with Booking.com's Terms of Service before using it at scale.
 
-Features
+# Features
 ✅ Extract hotel details: reviews, name, rating, location, number of reviews, etc.
 
 ✅ Dynamically scroll and load more hotel results
