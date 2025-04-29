@@ -9,7 +9,7 @@ Designed for research, data analysis, and personal projects requiring hotel data
 ## Features
 * **Extract hotel details**: reviews, name, rating, location, number of reviews, etc.
 * Dynamically scroll and load more hotel results
-* Scrape customer reviews via Booking.com's GraphQL API
+* Scrape customer reviews via Booking.com's **GraphQL** API
 * Dynamic cookie management to avoid detection
 * Modular, class-based design for easy maintenance
 
@@ -18,7 +18,6 @@ Clone the repository and install the dependencies:
 ```python 
 git clone https://github.com/CaptainGouzMoew/Booking.com-Crawler.git
 ```
-bash
 ```python
 cd Booking.com-Crawler
 ```
