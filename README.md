@@ -13,43 +13,35 @@ Disclaimer: This tool is intended for educational and personal use only. Ensure 
 
 # Installation
 Clone the repository and install the dependencies:
-
-bash
-Copy
-Edit
 ```python 
-git clone https://github.com/CaptainGouzMoew/Booking.com-Crawler.git  
-cd Booking.com-Crawler  
+git clone https://github.com/CaptainGouzMoew/Booking.com-Crawler.git
+```
+bash
+```python
+cd Booking.com-Crawler
+```
+```python
 pip install -r requirements.txt
 ```
 # Usage
 To scrape hotel listings:
-
-bash
-Copy
-Edit
+```python
 python scrape_hotels.py
+```
 To scrape customer reviews for a specific hotel:
-
-bash
-Copy
-Edit
+```python
 python scrape_comments.py --hotel_id 1234567
-
+```
 # Configuration
-Headers and cookies must be refreshed periodically to avoid detection.
-
-Destination and hotel IDs are fetched dynamically during scraping.
-
-Pagination, scroll delays, and user-agent rotation can be adjusted in the config file.
+* Headers and cookies must be refreshed periodically to avoid detection.
+* Destination and hotel IDs are fetched dynamically during scraping.
+* Pagination, scroll delays, and user-agent rotation can be adjusted in the config file.
 
 # License
-This project is licensed under the MIT License — see LICENSE for details.
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT) — see LICENSE for details.
 
 # Contact
-Dong Thanh Duong
-GitHub: @CaptainGouzMoew
-Email: dongthanhduong0312@gmail.com
+For questions, issues, or collaboration inquiries, please feel free to open an issue on GitHub.
 
 # Tips
 Scraping a city might take some time. You’re better off taking a nap while it works its magic and returns the results!
