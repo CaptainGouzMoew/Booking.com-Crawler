@@ -4,26 +4,24 @@ Designed for research, data analysis, and personal projects requiring hotel data
 
 Disclaimer: This tool is intended for educational and personal use only. Ensure compliance with Booking.com's Terms of Service before using it at scale.
 
-# Features
-✅ Extract hotel details: reviews, name, rating, location, number of reviews, etc.
-
-✅ Dynamically scroll and load more hotel results
-
-✅ Scrape customer reviews via Booking.com's GraphQL API
-
-✅ Dynamic cookie management to avoid detection
-
-✅ Modular, class-based design for easy maintenance
+## Features
+* **Extract hotel details**: reviews, name, rating, location, number of reviews, etc.
+* Dynamically scroll and load more hotel results
+* Scrape customer reviews via Booking.com's GraphQL API
+* Dynamic cookie management to avoid detection
+* Modular, class-based design for easy maintenance
 
 # Installation
 Clone the repository and install the dependencies:
-```bash cd Booking.com-Crawler pip install -r requirements.txt ```
+
 bash
 Copy
 Edit
+```python 
 git clone https://github.com/CaptainGouzMoew/Booking.com-Crawler.git  
 cd Booking.com-Crawler  
 pip install -r requirements.txt
+```
 # Usage
 To scrape hotel listings:
 
