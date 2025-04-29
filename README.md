@@ -17,7 +17,7 @@ Disclaimer: This tool is intended for educational and personal use only. Ensure 
 
 # Installation
 Clone the repository and install the dependencies:
-<pre> ```bash cd Booking.com-Crawler pip install -r requirements.txt ``` </pre>
+```bash cd Booking.com-Crawler pip install -r requirements.txt ```
 bash
 Copy
 Edit
