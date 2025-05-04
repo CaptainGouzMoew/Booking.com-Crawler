@@ -33,6 +33,21 @@ To scrape customer reviews for a specific hotel:
 ```python
 python scrape_comments.py --hotel_id 1234567
 ```
+Update citi list:
+```python
+cities = [
+    'ha noi'
+    ,'ho-chi-minh'
+    # ,'da-nang'
+    # ,'da-lat'
+    # ,'phu-quoc'
+    # ,'ninh-binh'
+    # ,'hue'
+    # ,'quang-ninh'
+    # ,'nha-trang'
+    # ,'hoi-an'
+]
+```
 ## Configuration
 * Headers and cookies must be refreshed periodically to avoid detection.
 * Destination and hotel IDs are fetched dynamically during scraping.
