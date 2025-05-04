@@ -1,6 +1,5 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
@@ -25,7 +24,7 @@ class BookingScraper:
                 break
             last_height = new_height
 
-    def click_all_load_more(self, max_clicks=10):
+    def click_all_load_more(self, max_clicks=10): # only click 10 pages (modify if need more)
         clicks = 0
         while clicks < max_clicks:
             self.scroll_to_bottom(pause_time=1)
@@ -71,10 +70,10 @@ class BookingScraper:
                 lines = review_block.split('\n')
                 num_reviews = int(lines[-1].split()[0])
 
-                if num_reviews < 10:
+                if num_reviews < 20: # don't take smaller than 20 reviews
                     continue
 
-                rating = lines[0] if lines else "N/A"
+                #rating = lines[0] if lines else "N/A"
 
                 # name_list.append(name)
                 link_list.append(link)
