@@ -27,7 +27,7 @@ pip install -r requirements.txt
 ## Usage
 To scrape hotel listings:
 ```python
-python scrape_hotels.py
+python main.py
 ```
 To scrape customer reviews for a specific hotel:
 ```python
