@@ -33,7 +33,7 @@ To scrape customer reviews for a specific hotel:
 ```python
 python scrape_comments.py --hotel_id 1234567
 ```
-Update citi list:
+Update city list in ```city.py```:
 ```python
 cities = [
     'ha noi'
