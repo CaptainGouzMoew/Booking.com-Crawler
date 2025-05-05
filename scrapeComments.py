@@ -2,6 +2,7 @@ import requests
 import json
 import pandas as pd
 import re
+import argparse
 
 from crawl_element import element_crawl
 class headerBuilder:  
@@ -146,16 +147,32 @@ class ReviewScrape():
     return df
 
 if __name__ == "__main__":
-  refer = 'https://www.booking.com/hotel/vn/h-l-art-hanoi.html?aid=304142&label=gen173nr-1FCAQoggJCDXNlYXJjaF9oYS1ub2lIM1gEaPQBiAEBmAExuAEXyAEM2AEB6AEB-AEDiAIBqAIDuAL73bTABsACAAdICJDQ0N2YyMTYzLWFkNjAtNDY1MS05ZDEwLWI2YjAwNTkzZDM0ZNgCBeACAQ&ucfs=1&arphpl=1&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=9&hapos=9&sr_order=popularity&srpvid=4e3b867dd67f0b5a&srepoch=1745694499&from=searchresults'
+  # refer = 'https://www.booking.com/hotel/vn/h-l-art-hanoi.html?aid=304142&label=gen173nr-1FCAQoggJCDXNlYXJjaF9oYS1ub2lIM1gEaPQBiAEBmAExuAEXyAEM2AEB6AEB-AEDiAIBqAIDuAL73bTABsACAAdICJDQ0N2YyMTYzLWFkNjAtNDY1MS05ZDEwLWI2YjAwNTkzZDM0ZNgCBeACAQ&ucfs=1&arphpl=1&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=9&hapos=9&sr_order=popularity&srpvid=4e3b867dd67f0b5a&srepoch=1745694499&from=searchresults'
+  # element = element_crawl(url=refer)
+  # scrape = ReviewScrape(
+  #   referal = refer
+  #   ,hotel_ID = element.get_hotel_id()
+  #   ,dest_ID = element.get_hotel_dest_ID()
+  #   ,hotel_rating = element.get_hotel_rating()
+  # )
+
+  # df =  scrape.scrapeReview()
+  # #df.to_csv('hotelReview.csv', index=False)
+  # print(df)
+  
+  parser = argparse.ArgumentParser(description='Scrape Booking.com hotel reviews.')
+  parser.add_argument('--url', type=str, required=True, help='Hotel URL to scrape')
+
+  args = parser.parse_args()
+  refer = args.url
+
   element = element_crawl(url=refer)
   scrape = ReviewScrape(
-    referal = refer
-    ,hotel_ID = element.get_hotel_id()
-    ,dest_ID = element.get_hotel_dest_ID()
-    ,hotel_rating = element.get_hotel_rating()
+      referal=refer,
+      hotel_ID=element.get_hotel_id(),
+      dest_ID=element.get_hotel_dest_ID(),
+      hotel_rating=element.get_hotel_rating()
   )
 
-  df =  scrape.scrapeReview()
-  #df.to_csv('hotelReview.csv', index=False)
+  df = scrape.scrapeReview()
   print(df)
-  

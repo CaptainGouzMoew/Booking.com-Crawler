@@ -25,13 +25,13 @@ cd Booking.com-Crawler
 pip install -r requirements.txt
 ```
 ## Usage
-To scrape hotel listings:
+To scrape hotel listings --> output in output_reviews:
 ```python
 python main.py
 ```
 To scrape customer reviews for a specific hotel:
 ```python
-python scrape_comments.py --hotel_id 1234567
+python scrape_comments.py --url 'https://www.booking.com/hotel/vn/your-hotel.html'
 ```
 Update city list in ```city.py```:
 ```python
