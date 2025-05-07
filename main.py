@@ -1,9 +1,9 @@
 from pathlib import Path
 import pandas as pd
-from scrapeComments import ReviewScrape
-from hotel_nameCrawl import BookingScraper
-from crawl_element import element_crawl
-from city import cities
+from scr.booking_scraper.scrapeComments import ReviewScrape
+from scr.booking_scraper.hotel_nameCrawl import BookingScraper
+from scr.booking_scraper.crawl_element import element_crawl
+from scr.booking_scraper.city import cities
 
 
 output_dir = Path("output_reviews")

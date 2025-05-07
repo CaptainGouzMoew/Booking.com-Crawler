@@ -4,7 +4,7 @@ import pandas as pd
 import re
 import argparse
 
-from crawl_element import element_crawl
+from scr.booking_scraper.crawl_element import element_crawl
 class headerBuilder:  
   def get_dynamic_headers(self,referer):
       session = requests.Session()
