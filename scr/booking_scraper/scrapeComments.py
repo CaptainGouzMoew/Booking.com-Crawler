@@ -3,8 +3,9 @@ import json
 import pandas as pd
 import re
 import argparse
+from crawl_element import element_crawl
+#from scr.booking_scraper.crawl_element import element_crawl
 
-from scr.booking_scraper.crawl_element import element_crawl
 class headerBuilder:  
   def get_dynamic_headers(self,referer):
       session = requests.Session()
@@ -48,7 +49,7 @@ class ReviewScrape():
     self.referal = referal
     self.hotel_ID = int(hotel_ID)
     self.dest_ID = int(dest_ID)
-    self.hotel_rating = float(hotel_rating)
+    self.hotel_rating = float(hotel_rating.replace(',', '.'))
 
     dynamic = headerBuilder()
     self.headers = dynamic.get_dynamic_headers(referal) # dynamic
@@ -147,7 +148,7 @@ class ReviewScrape():
     return df
 
 if __name__ == "__main__":
-  # refer = 'https://www.booking.com/hotel/vn/h-l-art-hanoi.html?aid=304142&label=gen173nr-1FCAQoggJCDXNlYXJjaF9oYS1ub2lIM1gEaPQBiAEBmAExuAEXyAEM2AEB6AEB-AEDiAIBqAIDuAL73bTABsACAAdICJDQ0N2YyMTYzLWFkNjAtNDY1MS05ZDEwLWI2YjAwNTkzZDM0ZNgCBeACAQ&ucfs=1&arphpl=1&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=9&hapos=9&sr_order=popularity&srpvid=4e3b867dd67f0b5a&srepoch=1745694499&from=searchresults'
+  # refer = 'https://www.booking.com/hotel/vn/my-sg-hn.vi.html?aid=304142&label=gen173nr-1FCAEoggI46AdIM1gEaPQBiAEBmAEJuAEXyAEM2AEB6AEB-AEMiAIBqAIDuALthu7ABsACAdICJGUxZjlhYzIwLTQ5YmUtNGJkOC04Mzk3LWI2YzU3MjYyMDE5ZtgCBuACAQ&sid=f27c5041020bbd59f79966347bb1646d&all_sr_blocks=1323063805_404974646_0_2_0&checkin=2025-05-10&checkout=2025-05-11&dest_id=-3730078&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=1323063805_404974646_0_2_0&hpos=1&matching_block_id=1323063805_404974646_0_2_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1323063805_404974646_0_2_0__75735000&srepoch=1746633597&srpvid=7185707a2a250007&type=total&ucfs=1&'
   # element = element_crawl(url=refer)
   # scrape = ReviewScrape(
   #   referal = refer
@@ -176,3 +177,4 @@ if __name__ == "__main__":
 
   df = scrape.scrapeReview()
   print(df)
+  
